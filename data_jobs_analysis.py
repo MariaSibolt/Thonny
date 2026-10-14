@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 # Lae andmestik
 df = pd.read_csv("Cleaned_DS_Jobs.csv")
 
-# --- Andmestiku kirjeldus ---
 print("📊 Andmestiku kirjeldus")
 print(f"Ridade arv: {df.shape[0]}")
 print(f"Veergude arv: {df.shape[1]}")
@@ -16,9 +15,7 @@ print(df.nunique())
 print("\nEsimesed read:")
 print(df.head())
 
-# --- Päringud ja rühmitamised ---
-
-# 1. Keskmine palk osariikide lõikes (Top 10)
+# 1. Keskmine palk osariikide lõikes 
 avg_salary_by_state = df.groupby("job_state")["avg_salary"].mean().sort_values(ascending=False).head(10)
 
 # 2. Tööde arv tehnoloogiate põhjal
@@ -33,8 +30,6 @@ top_roles = df.groupby("Job Title")["avg_salary"].mean().sort_values(ascending=F
 
 # 5. Seniority ja tööde arv
 seniority_counts = df["seniority"].value_counts()
-
-# --- Visualiseeringud ---
 
 # Graafik 1: Keskmine palk osariikide lõikes
 plt.figure(figsize=(10,6))
